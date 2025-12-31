@@ -1,0 +1,40 @@
+
+.highlight-word {
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.gradient-navbar {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    /* background: linear-gradient(90deg, #232526, #414345); */
+    /* background: linear-gradient(90deg, #11998e, #38ef7d); */
+    /* background: linear-gradient(90deg, #ff512f, #dd2476); */
+}
+
+/* Navbar links */
+.navbar .nav-link {
+   position: relative;
+  display: inline-block; 
+  margin-left: 10px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+  color: #ffe082 !important;
+}
+
+
+/* Active link underline */
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%; /* will now match text width */
+  height: 3px;
+  background-color: #ffe082;
+  border-radius: 2px;
+}
+

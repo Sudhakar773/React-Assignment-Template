@@ -1,38 +1,33 @@
-import { useState } from "react";
-import ProductForm from "./components/ProductForm";
-import ProductList from "./components/ProductList";
-import type { Product } from "./Product";
-import productData from "./products.json";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AppRoutes } from './routes/AppRoutes';
+import Navbar from './layout/Navbar';
+// import { AppRoutes } from "./routes/AppRoutes";
+// import { ThemeProvider } from "./context/ThemeProvider";
+// import { Header } from "./layout/Header";
+// import { Sidebar } from "./layout/Sidebar";
+// import { AppRoutes } from "./routes/AppRoutes";
 
 
 const App = () => {
 
-   const [products, setProducts] = useState<Product[]>(
-    productData as Product[]
-  );
-  const [editProduct, setEditProduct] = useState<Product | null>(null);
 
-  const addOrEditProduct = (product: Product) => {
-    if (product.id) {
-      setProducts(products.map(p => p.id === product.id ? product : p));
-    } else {
-      product.id = Date.now();
-      setProducts([...products, product]);
-    }
-    setEditProduct(null);
-  };
 
   return (
     <div className="">
-      <h3 className="text-center text-white mb-3 bg-primary p-2">Product Management</h3>
-      <div className="p-4 bg-light">
-        <ProductForm addOrEditProduct={addOrEditProduct} editProduct={editProduct} />
-        <ProductList products={products} setEditProduct={setEditProduct} />
-      </div>
+      {/* <h1>App comp</h1> */}
+      <Navbar />
+      <AppRoutes />
     </div>
+    //  <ThemeProvider>
+    //     {/* EVERYTHING that uses useTheme MUST be inside */}
+    //     <Header />
+    //     <div style={{ display: "flex" }}>
+    //       <Sidebar />
+    //       <AppRoutes />
+    //     </div>
+    //   </ThemeProvider>
   );
 };
 
 export default App;
-            
